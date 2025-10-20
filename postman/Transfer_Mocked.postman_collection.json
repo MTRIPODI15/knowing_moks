@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "38f1cb5a-1f69-4d91-b437-9a86504942d1",
+		"name": "Saldo Insuficiente",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41468722",
+		"_collection_link": "https://www.postman.com/variada/mocks/collection/41468722-38f1cb5a-1f69-4d91-b437-9a86504942d1?action=share&source=collection_link&creator=41468722"
+	},
+	"item": [
+		{
+			"name": "Transferencia valida",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"from_account\": \"123456\",\r\n  \"to_account\": \"654321\",\r\n  \"amount\": 100\r\n}\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n{\r\n  \"status\": \"success\",\r\n  \"message\": \"Transfer completed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/transfer",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Saldo Insuficiente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"from_account\": \"123456\",\r\n  \"to_account\": \"654321\",\r\n  \"amount\": 1000000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/transfer",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cuenta Invalida",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"from_account\": \"000000\",\r\n  \"to_account\": \"654321\",\r\n  \"amount\": 50\r\n}\r\n{\r\n  \"status\": \"error\",\r\n  \"message\": \"Invalid account number\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/transfer",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
