@@ -1,0 +1,28 @@
+# Archivos de entorno
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+
+# Archivos de evidencia
+evidence/
+*.log
+*.png
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+
+# Otros
+*.bak
+*.tmp
+
+node_modules/
